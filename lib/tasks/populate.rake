@@ -15,10 +15,5 @@ namespace :db do
 
     # Randomize user created_at timestamp
     users.each { |user| user.update(created_at: Date.today - rand(30)) }
-
-    # Generate random posts
-    posts = (10*users.count).times.collect do
-      (users.sample).posts.create(content: Faker::Lorem.sentence)
-    end
   end
 end
